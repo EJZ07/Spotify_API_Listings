@@ -1,0 +1,10 @@
+h1 {
+    border: 2px #eee solid;
+    color: yellow;
+    text-align: center;
+    padding: 10px;
+}
+
+body { 
+    background-color: hotpink;
+}
