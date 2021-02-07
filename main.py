@@ -28,11 +28,13 @@ headers = {
 TRACK_URL = 'https://api.spotify.com/v1/tracks/'
 ARTIST_URL = 'https://api.spotify.com/v1/artists?ids='
 the_weekend = '1Xyo4u8uXC1ZmMpatF05PJ'
+birocratic = '60b7IDlGflg5lgyfEGf9yB'
+tyler = '4V8LLVI7PbaPR0K2TGSxFF'
 
 response = requests.get(TRACK_URL + '62PclpoBFLl50PJpiJA5RT', headers=headers)
 data = response.json()
 
-response0 = requests.get(ARTIST_URL + the_weekend, headers=headers)
+response0 = requests.get(ARTIST_URL + the_weekend + "," + birocratic + "," + tyler, headers=headers)
 data0 = response0.json()
 app = Flask(__name__)
 

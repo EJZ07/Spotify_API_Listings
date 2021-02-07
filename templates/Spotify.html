@@ -12,6 +12,10 @@
         <a href="{{json_data['preview_url']}}">PREVIEW!</a>
         
         <h4>Top 3 favorite arists</h4>
-        <h5></h5>
+        <h5><ol>
+            <li>{{json_data0['artists'][0]['name']}}</li> <img src={{json_data['artists'][0]['images']}} height="200px" width="200px">
+            <li>{{json_data0['artists'][1]['name']}}</li>
+            <li>{{json_data0['artists'][2]['name']}}</li>
+            </ol></h5>
     </body>
 </html>
