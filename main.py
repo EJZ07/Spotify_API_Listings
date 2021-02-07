@@ -25,16 +25,20 @@ headers = {
     'Authorization' : 'Bearer {token}'.format(token=access_token)
     }
     
-BASE_URL = 'https://api.spotify.com/v1/tracks/'
+TRACK_URL = 'https://api.spotify.com/v1/tracks/'
+ARTIST_URL = 'https://api.spotify.com/v1/artists?ids='
+the_weekend = '1Xyo4u8uXC1ZmMpatF05PJ'
 
-response = requests.get(BASE_URL + '6fxjyCDNtuyqdsDi6YCSos', headers=headers)
+response = requests.get(TRACK_URL + '62PclpoBFLl50PJpiJA5RT', headers=headers)
 data = response.json()
 
+response0 = requests.get(ARTIST_URL + the_weekend, headers=headers)
+data0 = response0.json()
 app = Flask(__name__)
 
 @app.route('/')
 def spotify_list():
-    return render_template('Spotify.html', json_data = data)
+    return render_template('Spotify.html', json_data = data, json_data0 = data0)
 
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.run(port=int(os.getenv('PORT', 8080)), host=os.getenv('IP', '0.0.0.0'))
