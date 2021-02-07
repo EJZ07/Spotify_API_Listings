@@ -13,9 +13,16 @@
         
         <h4>Top 3 favorite arists</h4>
         <h5><ol>
-            <li>{{json_data0['artists'][0]['name']}}</li> <img src={{json_data['artists'][0]['images']}} height="200px" width="200px">
+            <li>{{json_data0['artists'][0]['name']}}</li> 
             <li>{{json_data0['artists'][1]['name']}}</li>
             <li>{{json_data0['artists'][2]['name']}}</li>
             </ol></h5>
+        <h6>{{json_data1['tracks'][0]['artists'][0]['name']}}'s top tracks</h6>
+        <p2><ul>
+            {%for i in json_data1['tracks']%}
+                <li>{{i['name']}}</li>
+            {%endfor%}
+        </ul>
+        </p2>
     </body>
 </html>
