@@ -25,10 +25,9 @@ headers = {
     'Authorization' : 'Bearer {token}'.format(token=access_token)
     }
     
-BASE_URL = 'https://api.spotify.com/v1/browse/new-releases'
-country = 'US'
+BASE_URL = 'https://api.spotify.com/v1/tracks/'
 
-response = requests.get(BASE_URL + "?country=" + country, headers=headers)
+response = requests.get(BASE_URL + '6fxjyCDNtuyqdsDi6YCSos', headers=headers)
 data = response.json()
 
 app = Flask(__name__)
@@ -37,5 +36,5 @@ app = Flask(__name__)
 def spotify_list():
     return render_template('Spotify.html', json_data = data)
 
-
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.run(port=int(os.getenv('PORT', 8080)), host=os.getenv('IP', '0.0.0.0'))
