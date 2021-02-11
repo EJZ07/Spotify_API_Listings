@@ -26,6 +26,8 @@ headers = {
     'Authorization' : 'Bearer {token}'.format(token=access_token)
     }
     
+SEARCH_URL = 'http://api.genius.com/search?q='
+LYRICS_URL = 'http://api.genius.com/songs/'
 TRACK_URL = 'https://api.spotify.com/v1/tracks/'
 ARTIST_URL = 'https://api.spotify.com/v1/artists?ids='
 TOP_TRACKS = 'https://api.spotify.com/v1/artists/'
@@ -52,12 +54,22 @@ elif num == 2:
     
 response1 = requests.get(TOP_TRACKS + artist_info + "/top-tracks?" + "market=" + market, headers=headers)
 data1 = response1.json()
+
+headers = {
+    'Authorization' : 'Bearer ' + os.getenv('G_ACCESS_TOKEN')
+    }
+response_alt = requests.get(SEARCH_URL + data1['tracks'][0]['name'], headers=headers)
+data_alt = response_alt.json()
+response2 = requests.get(LYRICS_URL + str(data_alt['response']['hits'][0]['result']['id']), headers=headers)
+data2 = response2.json()
         
 app = Flask(__name__)
+#data1['tracks'][0]['name']
+#data1['tracks'][0]['artists'][0]['name']
 
 @app.route('/')
 def spotify_list():
-    return render_template('Spotify.html', json_data = data, json_data0 = data0, json_data1 = data1)
+    return render_template('Spotify.html', json_data = data, json_data0 = data0, json_data1 = data1, json_data2 = data2)
 
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.run(port=int(os.getenv('PORT', 8080)), host=os.getenv('IP', '0.0.0.0'))
