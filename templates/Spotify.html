@@ -17,14 +17,10 @@
             <li>{{json_data0['artists'][1]['name']}}</li>
             <li>{{json_data0['artists'][2]['name']}}</li>
             </ol></h5>
-        <h6>{{json_data1['tracks'][0]['artists'][0]['name']}}'s top tracks</h6>
-        <p2><ul>
-            {%for i in json_data1['tracks']%}
-                <li>{{i['name']}}</li>
-            {%endfor%}
-        </ul>
+        <h6>One of the top tracks from, {{json_data1['tracks'][0]['artists'][0]['name']}}</h6>
+        <p2>
+        <a font-size=30px>{{g_song['response']['song']['title']}}</a> <a href="{{g_song['response']['song']['url']}}">Lyrics</a>
         
-        Lyrics to whatever: {{json_data2}}
         </p2>
     </body>
 </html>
