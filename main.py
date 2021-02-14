@@ -38,7 +38,7 @@ tyler = '4V8LLVI7PbaPR0K2TGSxFF'
 
 market = "US"
 
-response = requests.get(TRACK_URL + '62PclpoBFLl50PJpiJA5RT', headers=headers)
+response = requests.get(TRACK_URL + '62PclpoBFLl50PJpiJA5RT', headers=headers) #ThunderCat track URL
 data = response.json()
 
 response0 = requests.get(ARTIST_URL + the_weekend + "," + mystery + "," + tyler, headers=headers)
@@ -55,8 +55,7 @@ elif num == 2:
 response1 = requests.get(TOP_TRACKS + artist_info + "/top-tracks?" + "market=" + market, headers=headers)
 data1 = response1.json()
 
-rand_track = random.randint(0, len(data1['tracks']))
-
+rand_track = random.randint(0, len(data1['tracks'])-1)
 
 headers = {
     'Authorization' : 'Bearer ' + os.getenv('G_ACCESS_TOKEN')
@@ -67,8 +66,6 @@ response2 = requests.get(LYRICS_URL + str(data_alt['response']['hits'][0]['resul
 data2 = response2.json()
         
 app = Flask(__name__)
-#data1['tracks'][0]['name']
-#data1['tracks'][0]['artists'][0]['name']
 
 @app.route('/')
 def spotify_list():

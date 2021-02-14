@@ -5,22 +5,23 @@
         <link rel="stylesheet" href={{ url_for('static', filename='css/the_styles.css')}} type="text/css" />
     </head>
     <body>
-        <h1> Here are some of my favorite Songs and Artists </h1>
-        <h2>Song of the day</h2> <div><p style="float: right;"><img src={{json_data['album']['images'][0]['url']}} height="200px" width="200px"></p></div>
-        <p1> {{json_data['name']}}</p1> 
-        <h3>Artist: {{json_data['artists'][0]['name']}}</h3>
-        <a href="{{json_data['preview_url']}}">PREVIEW!</a>
+        <div class="title"><span>Here are some of my favorite Songs and Artists</span></div>
+        <div class="card">
+            <div
+            <div class="banner">
+              <h2>Favorite Song</h2> 
+              
+              <div class="app-text">
+                   <h3> {{json_data['name']}}</h3> 
+                   <p>Artist: {{json_data['artists'][0]['name']}}</p>
+                   <a href="{{json_data['preview_url']}}">PREVIEW!</a>
+              </div>
+              <div class="app-picture">
+                  <img src={{json_data['album']['images'][0]['url']}} height="400px" width="400px"/>
+              </div>
+          </div>
+        </div>
+          
         
-        <h4>Top 3 favorite arists</h4>
-        <h5><ol>
-            <li>{{json_data0['artists'][0]['name']}}</li> 
-            <li>{{json_data0['artists'][1]['name']}}</li>
-            <li>{{json_data0['artists'][2]['name']}}</li>
-            </ol></h5>
-        <h6>One of the top tracks from, {{json_data1['tracks'][0]['artists'][0]['name']}}</h6>
-        <p2>
-        <a font-size=30px>{{g_song['response']['song']['title']}}</a> <a href="{{g_song['response']['song']['url']}}">Lyrics</a>
-        
-        </p2>
     </body>
 </html>
