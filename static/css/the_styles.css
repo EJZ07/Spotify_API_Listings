@@ -67,7 +67,7 @@
     font-family: helvetica;
     font-size: 120px;
     float: right;
-    transform: translate(-50%, +20%);
+    transform: translate(-50%, +10%);
 }
 body { 
     background-color: IndianRed;
