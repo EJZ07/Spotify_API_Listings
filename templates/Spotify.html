@@ -6,22 +6,18 @@
     </head>
     <body>
         <div class="title"><span>Here are some of my favorite Songs and Artists</span></div>
-        <div class="card">
-            <div
             <div class="banner">
               <h2>Favorite Song</h2> 
               
               <div class="app-text">
-                   <h3> {{json_data['name']}}</h3> 
-                   <p>Artist: {{json_data['artists'][0]['name']}}</p>
-                   <a href="{{json_data['preview_url']}}">PREVIEW!</a>
+                   <h3> {{g_song['response']['song']['title']}}</h3> 
+                   <p>Artist:<br>{{json_data1['tracks'][0]['artists'][0]['name']}}</p>
+                   
               </div>
               <div class="app-picture">
-                  <img src={{json_data['album']['images'][0]['url']}} height="400px" width="400px"/>
+                  <img src={{g_song['response']['song']['header_image_url']}} height="600px" width="600px"/>
               </div>
+              <div class="prev"><a href="{{preview['tracks']['items'][0]['preview_url']}}">PREVIEW!</a></div>
           </div>
-        </div>
-          
-        
     </body>
 </html>
