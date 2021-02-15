@@ -15,7 +15,9 @@
                    
               </div>
               <div class="app-picture">
-                  <img src={{g_song['response']['song']['header_image_url']}} height="600px" width="600px"/>
+                  <img src={{g_song['response']['song']['header_image_url']}} height="600px" width="600px"/> 
+                  <a href="{{g_song['response']['song']['url']}}">
+                      <img src='https://cdn0.iconfinder.com/data/icons/music-store-1/100/stand-512.png'/></a>
               </div>
               <div class="prev"><a href="{{preview['tracks']['items'][0]['preview_url']}}">PREVIEW!</a></div>
           </div>

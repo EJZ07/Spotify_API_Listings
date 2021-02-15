@@ -28,10 +28,6 @@
     
 }
 
-.app-picture{
- 
-}
-
 .app-text{
     width: 100%;
     float: left;
@@ -67,6 +63,12 @@
     padding: 5px;
 }
 
+.app-picture a{
+    font-family: helvetica;
+    font-size: 120px;
+    float: right;
+    transform: translate(-50%, +20%);
+}
 body { 
     background-color: IndianRed;
 }

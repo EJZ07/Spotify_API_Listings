@@ -35,19 +35,22 @@ TOP_TRACKS = 'https://api.spotify.com/v1/artists/'
 the_weekend = '1Xyo4u8uXC1ZmMpatF05PJ'
 tobi = '4T8NIfZmVY6TJFqVzN6X49'
 tyler = '4V8LLVI7PbaPR0K2TGSxFF'
+healy = '2Yhge9MsE7qKcV0eWsuuHM'
 
 market = "US"
 
 response0 = requests.get(ARTIST_URL + the_weekend + "," + tobi + "," + tyler, headers=headers)
 data0 = response0.json()
 
-num = random.randint(0,2)
+num = random.randint(0,3)
 if num == 0:
     artist_info = the_weekend
 elif num == 1:
     artist_info = tobi
 elif num == 2:
     artist_info = tyler
+elif num == 3:
+    artist_info = healy
     
 response1 = requests.get(TOP_TRACKS + artist_info + "/top-tracks?" + "market=" + market, headers=headers)
 data1 = response1.json()
